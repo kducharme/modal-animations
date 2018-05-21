@@ -1,7 +1,7 @@
-const modalManager = require('./interface/modalManager');
+const setupManager = require('./interface/setupManager');
 const $ = require('jquery');
 
 // Shows first modal in sequence
-modalManager.viewOne();
+setupManager.viewOne();
 
 

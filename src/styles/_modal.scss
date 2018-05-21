@@ -1,34 +1,83 @@
 @import 'variables';
-@import 'base';
+@import 'element';
+@import 'mixins';
 
 .modal {
-    display: flex;
-    align-items: center;
+    @include display-flex(center, center, column);
     margin-top: 100px;
-    flex-direction: column;
     background-color: $backgroundColor;
     width: 70vw;
-    padding: 50px 100px 50px 100px;
+    padding: 90px 100px 90px 100px;
 
     .modal__title {
-        font-size: 2.5em;
-        color: $primaryFontColor;
-        font-family: $secondaryFont;
+        position: relative;
+        text-align: center;
+        margin-bottom: .7em;
+        font-size: 1.8em;
+        width: 80%;
+        
+        span {
+            padding: 0 15px;
+            position: relative;
+            z-index: 1;
+            color: $primaryFontColor;
+            font-family: $secondaryFont;
+        }
+      }
+
+      .modal__title:before, .modal__title:after {
+        background: white;
+        opacity: .5;
+        content: "";
+        display: block;
+        height: 1px;
+        position: absolute;
+        top: 50%;
+        width: 20%;
+      }
+      
+      .modal__title:before {
+        left: 0;
+        margin-right: 30px;
     }
+    
+    .modal__title:after {
+        right: 0;
+        margin-left: 30px;
+      }
 
     .modal__subtitle {
-        font-size: 1em;
+        font-size: .7em;
+        font-weight: $black;
         color: $accentColor;
+        opacity: $fontOpacity;
+        margin-bottom: 2em;
+    }
+
+    .modal__details {
+        color: white;
+        text-align: center;
+        font-size: 15px;
+        font-weight: $light;
+        opacity: $fontOpacity;
+        margin-bottom: 2em;
+        width: 70%;
     }
 
     .modal__button {
-        
-        .modal__button--primary {
+        @include display-flex(space-between, center, row);
+        min-width: 300px;
+        width: 40%;
 
+        .modal__button--primary {
+            color: white;
+            border: 1.5px solid white;;
+            background-color: rgba(255, 255, 255, 0.05);
         }
 
         .modal__button--secondary {
-            
+            color: white;
+            background-color: $accentColor;
         }
 
     }

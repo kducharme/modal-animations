@@ -17,9 +17,9 @@ const modalFactory = (title, subtitle, details, inputs, button1, button2) => {
 
     // Modal title
     if (title) {
-        const $title = $('<p>');
-        $title.text(title)
-            .addClass('modal__title');
+        const $title = $('<h1>')
+            .addClass('modal__title')
+            .html(`<span>${title}</span>`);
         $modal.append($title);
     }
 

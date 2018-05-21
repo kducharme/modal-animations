@@ -1,17 +1,22 @@
+// All element-level global styling
+
 @import 'variables';
 
 h1, h2, h3, h4, h5, p, button, a {
     font-family: $primaryFont;
     margin: 0;
+    line-height: 1.7;
 }
 
 button {
     font-weight: 600;
-    font-size: 14px;
-    border-radius: 3px;
+    font-size: 15px;
+    border-radius: 4px;
+    height: 42px;
+    padding: 8px 16px 8px 16px;
 }
 
-button:active, button:focus, input:active, input:focus {
+button:active, button:focus, button:hover, input:active, input:focus {
     cursor: pointer;
     -webkit-transition: none;
     -moz-transition: none;
