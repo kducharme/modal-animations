@@ -1,0 +1,29 @@
+@import 'base';
+@import 'variables';
+
+// Font variables
+$primaryFont: 'Lato', 'Open sans';
+$secondaryFont: 'Lato', 'Open sans';
+
+// Color variables
+$backgroundColor: #1b1e26;
+$primaryFontColor: #fff;
+$accentColor: #3772FF;
+$secondaryColor: #DF2935;
+$tertiaryColor: #FDCA40;
+
+// Other variables
+$fontOpacity: .7;
+
+h1, h2, h3, h4, h5, p, button, a {
+    font: 100% $primaryFont;
+}
+
+button:active, button:focus, input:active, input:focus {
+    cursor: pointer;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    outline: none;
+}
