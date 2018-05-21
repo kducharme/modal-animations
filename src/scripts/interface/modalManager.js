@@ -9,13 +9,20 @@ const modalManager = Object.create(null, {
     viewOne: {
         value: function () {
             // Creating arguments for modalFactory;
-            const title = 'Add new task'
+            const title = 'Create new account';
+            const subtitle = 'Hey there';
             const details = 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.';
-            const inputs = ['Task name', 'Task description', 'Due date']
-            const button = buttonFactory('modal__content--button', 'Add task', (function () {
+            const inputs = undefined;
+
+            const button1 = buttonFactory('modal__button--primary', 'Primary button', (function () {
                 modalManager.viewTwo()
             }))
-            const modal = modalFactory(title, details, inputs, button);
+
+            const button2 = buttonFactory('modal__button--secondary', 'Secondary button', (function () {
+                modalManager.viewThree()
+            }))
+
+            const modal = modalFactory(title, subtitle, details, inputs, button1, button2);
         }
     },
     viewTwo: {

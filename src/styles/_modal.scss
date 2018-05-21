@@ -1,0 +1,35 @@
+@import 'variables';
+@import 'base';
+
+.modal {
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    flex-direction: column;
+    background-color: $backgroundColor;
+    width: 70vw;
+    padding: 50px 100px 50px 100px;
+
+    .modal__title {
+        font-size: 2.5em;
+        color: $primaryFontColor;
+        font-family: $secondaryFont;
+    }
+
+    .modal__subtitle {
+        font-size: 1em;
+        color: $accentColor;
+    }
+
+    .modal__button {
+        
+        .modal__button--primary {
+
+        }
+
+        .modal__button--secondary {
+            
+        }
+
+    }
+}

@@ -1,56 +1,69 @@
 const $ = require('jquery');
 
-const modalFactory = (title, details, inputs, button) => {
+const modalFactory = (title, subtitle, details, inputs, button1, button2) => {
     const $body = $('body');
 
-    // Creates background structure
-    const $background = $('<span>');
-    $background.addClass('modal__bg');
-    
     // Creates modal structure
     const $modal = $('<span>');
     $modal.addClass('modal');
 
-    // Modal content structure
-    const $content = $('<span>')
-    $content.addClass('modal__content');
+    // Modal title
+    if (subtitle) {
+        const $subtitle = $('<p>')
+            .text(subtitle)
+            .addClass('modal__subtitle');
+        $modal.append($subtitle);
+    }
 
     // Modal title
-    const $title = $('<p>');
-    $title.text(title);
-    $title.addClass('modal__content--title');
-    $content.append($title);
+    if (title) {
+        const $title = $('<p>');
+        $title.text(title)
+            .addClass('modal__title');
+        $modal.append($title);
+    }
 
     // Modal details
-    const $details = $('<p>');
-    $details.text(details);
-    $details.addClass('modal__content--details');
-    $content.append($details);
+    if (details) {
+        const $details = $('<p>')
+            .text(details)
+            .addClass('modal__details');
+        $modal.append($details);
+    }
 
     // Modal inputs
-    const $form = $('<span>');
-    $form.addClass('modal__content--form');
-    inputs.forEach(input => {
-        const $label = $('<label>');
-        $label.text(input);
-        $label.addClass('modal__content--label');
-        $content.append($label);
+    if (inputs) {
+        const $form = $('<span>');
+        $form.addClass('modal__form');
+        inputs.forEach(input => {
+            const $label = $('<label>')
+                .text(input)
+                .addClass('modal__label');
+            $modal.append($label);
 
-        const $input = $('<input>');
-        const id = input.split(' ')[0];
-        $input.attr('id', `id__${id}`);
-        $input.attr('placeholder', input);
-        $input.addClass('modal__content--input')
-        $content.append($input);
-    })
+            const id = input.split(' ')[0];
+            const $input = $('<input>')
+                .attr('id', `id__${id}`)
+                .attr('placeholder', input)
+                .addClass('modal__input');
 
-    // Appends button to modal
-    $content.append(button);
-    
+            $form.append($input);
+        })
+        $modal.append($form);
+    }
+
+    if (button1 && button2) {
+        const $structure = $('<span>')
+            .addClass('modal__button');
+        $structure.append(button1, button2);
+        $modal.append($structure)
+    }
+    if (!button2) {
+        $modal.append(button1);
+    }
+
     // Appending everything together
-    $modal.append($content);
-    $background.append($modal);
-    $body.append($background);
+    $body.append($modal);
 }
 
 // Closes the modal when a user clicks the 'x'
