@@ -1,0 +1,1 @@
+const modalManager = require('./modalManager');
