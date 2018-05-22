@@ -72,10 +72,10 @@ const setupManager = Object.create(null, {
                     const title = `How should we address you?`;
                     const subtitle = 'STEP 2: BASIC INFORMATION';
                     const details = undefined;
-                    const inputs = ['Full name', 'E-mail'];
+                    const inputs = ['First name', 'Last name'];
 
                     const button1 = buttonFactory('modal__button--primary', 'Continue setup', (function () {
-                        const name = $('#id__Full').val()
+                        const name = $('#id__First').val()
                         setupManager.viewThree(name)
                     }))
 
@@ -117,8 +117,6 @@ const setupManager = Object.create(null, {
     },
     viewThree: {
         value: function (name) {
-            const firstName = name.split(' ')[0]
-
             $('#wave1').animate({
                 width: '900px',
                 height: '900px',
@@ -127,28 +125,34 @@ const setupManager = Object.create(null, {
                 opacity: 0
             }, 1800);
 
+            // expands bg from left to right and hides content
             $('.modal__bg').animate({
                 width: '100%',
-            }, 1640, function () {
-                $(this).after($('.modal').empty());
+            }, 1620, function () {
+                // $(this).after($('.modal').empty())
+                $('.modal__content').empty();
+                $('.modal__content').remove();
                 $(this).after(function () {
+
                     // Creating arguments for setupFactory;
-                    const title = `Where can we find you, ${firstName}?`;
-                    const subtitle = 'STEP 3: SOCIAL PROFILES';
+                    const title = `How can we reach you, ${name}?`;
+                    const subtitle = 'STEP 3: CONTACT INFORMATION';
                     const details = undefined;
-                    const inputs = ['Linkedin', 'GitHub'];
-                    const wave = 'wave1'
+                    const inputs = ['E-mail', 'Phone number'];
 
                     const button1 = buttonFactory('modal__button--primary', 'Continue setup', (function () {
-                        setupManager.viewThree()
+                        const name = $('#id__Full').val()
+                        setupManager.viewThree(name)
                     }))
 
                     const button2 = buttonFactory('modal__button--secondary', 'Go back', (function () {
                         $('.modal').empty();
-                        setupManager.viewTwo();
+                        setupManager.viewOne();
                     }))
 
-                    const modal = setupFactory(wave, title, subtitle, details, inputs, button1, button2);
+                    const modal = setupFactory(title, subtitle, details, inputs, button1, button2);
+
+                    $modal.append(modal);
 
                     $('.modal__details').addClass('modal__detailsAlt');
 
@@ -156,10 +160,25 @@ const setupManager = Object.create(null, {
                         'margin-top': '50px'
                     })
 
+                    // collapses bg to hide on right of page
+                    $('#wave1').animate({
+                        width: '1000px',
+                        height: '1000px',
+                        right: '-100px',
+                        color: 'white',
+                        opacity: '.05'
+                    }, 1400);
+
+                    setTimeout(function () {
+                        $('.modal__bg').animate({
+                            width: '7vw'
+                        }, 1400)
+                    }, 265);
+
                 })
             });
         }
-    },
+    }
 })
 
 module.exports = setupManager;
