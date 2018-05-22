@@ -2,14 +2,14 @@
 
 @import 'variables';
 
-h1, h2, h3, h4, h5, p, button, a {
+h1, h2, h3, h4, h5, p, button, a, label {
     font-family: $primaryFont;
     margin: 0;
     line-height: 1.7;
 }
 
 button {
-    font-weight: 600;
+    font-weight: 400;
     font-size: 15px;
     border-radius: 4px;
     height: 42px;

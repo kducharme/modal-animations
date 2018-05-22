@@ -2,31 +2,29 @@
 
 .wave {
     position: absolute;
-    top: 0;
-    right: -150px;
-    width: 360px;
-    height: 360px;
     margin-left: -250px;
     margin-top: -250px;
     transform-origin: 50% 48%;
     border-radius: 44%;
-    animation: drift 12000ms infinite linear;
 }
 .wave1 {
     background: white;
-    opacity: .7;
-    transform: scaleY(150deg);
-    animation: drift 15000ms infinite linear;
+    opacity: .05;
+    top: 0;
+    right: -100px;
+    width: 1000px;
+    height: 1000px;
+    animation: drift 18000ms infinite linear;
 }
 
 .wave2 {
-    background: $secondaryColor;
-    opacity: .7;
+    background: white;
+    opacity: .05;
     top: 0;
-    right: -140px;
-    width: 360px;
-    height: 360px;
-    animation: drift 12000ms infinite linear;
+    left: -100px;
+    width: 1000px;
+    height: 1000px;
+    animation: drift 20000ms infinite linear;
 }
 
 @keyframes drift {

@@ -1,18 +1,26 @@
 const $ = require('jquery');
 
-const setupFactory = (title, subtitle, details, inputs, button1, button2) => {
+const setupFactory = (wave, title, subtitle, details, inputs, button1, button2) => {
     const $body = $('body');
 
     // Creates modal structure
     const $modal = $('<div>')
         .addClass('modal');
 
+    const $bg = $('<div>')
+        .addClass('modal__bg')
+        $modal.append($bg);
+
+    const $content = $('<div>')
+        .attr('id', 'content')
+        .addClass('modal__content')
+
     // Modal title
     if (subtitle) {
         const $subtitle = $('<p>')
             .text(subtitle)
             .addClass('modal__subtitle');
-        $modal.append($subtitle);
+        $content.append($subtitle);
     }
 
     // Modal title
@@ -20,7 +28,7 @@ const setupFactory = (title, subtitle, details, inputs, button1, button2) => {
         const $title = $('<h1>')
             .addClass('modal__title')
             .html(`<span>${title}</span>`);
-        $modal.append($title);
+        $content.append($title);
     }
 
     // Modal details
@@ -28,7 +36,7 @@ const setupFactory = (title, subtitle, details, inputs, button1, button2) => {
         const $details = $('<p>')
             .text(details)
             .addClass('modal__details');
-        $modal.append($details);
+        $content.append($details);
     }
 
     // Modal inputs
@@ -36,30 +44,48 @@ const setupFactory = (title, subtitle, details, inputs, button1, button2) => {
         const $form = $('<span>');
         $form.addClass('modal__form');
         inputs.forEach(input => {
+            const $structure = $('<span>')
+                .addClass('modal__form--structure')
+
+            // Creates label for input
             const $label = $('<label>')
                 .text(input)
-                .addClass('modal__label');
-            $modal.append($label);
+                .addClass('modal__form--label');
+            $stucture.append($label);
 
+            // Creates input
             const id = input.split(' ')[0];
             const $input = $('<input>')
-                .attr('id', `id__${id}`)
-                .attr('placeholder', input)
-                .addClass('modal__input');
+            .attr('id', `id__${id}`)
+            .attr('placeholder', input)
+            .addClass('modal__form--input');
+            $structure.append($input);
 
-            $form.append($input);
+            // Appends full input to form
+            $form.append($structure);
         })
-        $modal.append($form);
+        $content.append($form);
     }
 
+    // Modal buttons
     if (button1 && button2) {
         const $structure = $('<span>')
             .addClass('modal__button');
         $structure.append(button2, button1);
-        $modal.append($structure)
+        $content.append($structure)
     }
     if (!button2) {
-        $modal.append(button1);
+        $content.append(button1);
+    }
+
+    $modal.append($content)
+
+    // Modal background animation
+    if (wave) {
+        const $wave = $('<div>')
+            .addClass(`wave ${wave}`)
+            .attr('id', wave);
+        $modal.append($wave);
     }
 
     // Appending everything together

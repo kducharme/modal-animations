@@ -5,17 +5,36 @@
 .modal {
     @include display-flex(center, center, column);
     background-color: $backgroundColor;
-    padding: 90px 100px 95px 100px;
+    height: 450px;
     position: relative;
     overflow: hidden;
     margin-top: 100px;
-    width: 70vw;
+    width: 90vw;
+
+    .modal__bg {
+        align-self: flex-start;
+        background-color: $backgroundColor;
+        width: 7vw;
+        margin-top: -108px;
+        height: 100%;
+        z-index: 999;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        
+    }
+
+    .modal__content {
+        position: relative;
+        margin-top: -350px;
+        @include display-flex(center, center, column);
+        width: 80%;
+    }
 
     .modal__title {
         position: relative;
         text-align: center;
-        margin-bottom: .7em;
-        font-size: 1.9em;
+        margin-bottom: 1em;
+        font-size: 1.7em;
         width: 70%;
 
         span {
@@ -35,7 +54,7 @@
         height: 1px;
         position: absolute;
         top: 50%;
-        width: 18%;
+        width: 14%;
       }
       
       .modal__title:before {
@@ -50,10 +69,11 @@
 
     .modal__subtitle {
         font-size: .7em;
+        letter-spacing: 1.1px;
         font-weight: $black;
         color: $secondaryColor;
         opacity: $fontOpacity;
-        margin-bottom: 2em;
+        margin-bottom: 1.4em;
     }
 
     .modal__details {
@@ -62,13 +82,35 @@
         font-size: 15px;
         font-weight: $light;
         opacity: $fontOpacity;
-        margin-bottom: 2.4em;
+        margin-bottom: 2.8em;
         width: 70%;
+    }
+
+    .modal__form {
+        @include display-flex(space-between, center, row);
+        width: 100%;
+        z-index: 10;
+
+        .modal__form--structure {
+            font-size: 12px;
+            color: white;
+        }
+
+        .modal__form--label {
+            font-size: 12px;
+            color: white;
+        }
+
+        .modal__form--input {
+            height: 40px;
+            width: 30%;
+        }
     }
 
     .modal__button {
         @include display-flex(space-between, center, row);
         width: 320px;
+        z-index: 9;
 
         .modal__button--primary {
             @include button-primary(white, $secondaryColor);
