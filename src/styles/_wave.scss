@@ -1,7 +1,6 @@
 @import 'variables';
 
 .wave {
-    opacity: .25;
     position: absolute;
     top: 0;
     right: -150px;
@@ -14,16 +13,19 @@
     animation: drift 12000ms infinite linear;
 }
 .wave1 {
-    background: $secondaryColor;
+    background: white;
+    opacity: .7;
+    transform: scaleY(150deg);
+    animation: drift 15000ms infinite linear;
 }
 
 .wave2 {
     background: $secondaryColor;
-    opacity: .5;
+    opacity: .7;
     top: 0;
     right: -140px;
-    width: 350px;
-    height: 350px;
+    width: 360px;
+    height: 360px;
     animation: drift 12000ms infinite linear;
 }
 
