@@ -1,15 +1,6 @@
 const $ = require('jquery');
 
-const setupFactory = (wave, title, subtitle, details, inputs, button1, button2) => {
-    const $body = $('body');
-
-    // Creates modal structure
-    const $modal = $('<div>')
-        .addClass('modal');
-
-    const $bg = $('<div>')
-        .addClass('modal__bg')
-    $modal.append($bg);
+const setupFactory = (title, subtitle, details, inputs, button1, button2) => {
 
     const $content = $('<div>')
         .attr('id', 'content')
@@ -81,24 +72,7 @@ const setupFactory = (wave, title, subtitle, details, inputs, button1, button2) 
         $content.append($structure)
     }
 
-    $modal.append($content)
-
-    // Modal background animation
-    if (wave) {
-        const $wave = $('<div>')
-            .addClass(`wave ${wave}`)
-            .attr('id', wave);
-        $modal.append($wave);
-    }
-
-    // Appending everything together
-    $body.append($modal);
-}
-
-// Closes the modal when a user clicks the 'x'
-const closeModal = () => {
-    $('.modal__bg').remove();
-    $('.modal__close').remove();
+    return $content;
 }
 
 module.exports = setupFactory;

@@ -7,11 +7,22 @@
     transform-origin: 50% 48%;
     border-radius: 44%;
 }
+
 .wave1 {
     background: white;
     opacity: .05;
     top: 0;
     right: -100px;
+    width: 1000px;
+    height: 1000px;
+    animation: drift 18000ms infinite linear;
+}
+
+.wave2 {
+    background: white;
+    opacity: .05;
+    top: 0;
+    left: -100px;
     width: 1000px;
     height: 1000px;
     animation: drift 18000ms infinite linear;
