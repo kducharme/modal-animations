@@ -4,18 +4,20 @@
 
 .modal {
     @include display-flex(center, center, column);
-    margin-top: 100px;
     background-color: $backgroundColor;
+    padding: 90px 100px 95px 100px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 100px;
     width: 70vw;
-    padding: 90px 100px 90px 100px;
 
     .modal__title {
         position: relative;
         text-align: center;
         margin-bottom: .7em;
-        font-size: 1.8em;
-        width: 80%;
-        
+        font-size: 1.9em;
+        width: 70%;
+
         span {
             padding: 0 15px;
             position: relative;
@@ -27,13 +29,13 @@
 
       .modal__title:before, .modal__title:after {
         background: white;
-        opacity: .5;
+        opacity: .3;
         content: "";
         display: block;
         height: 1px;
         position: absolute;
         top: 50%;
-        width: 20%;
+        width: 18%;
       }
       
       .modal__title:before {
@@ -49,7 +51,7 @@
     .modal__subtitle {
         font-size: .7em;
         font-weight: $black;
-        color: $accentColor;
+        color: $secondaryColor;
         opacity: $fontOpacity;
         margin-bottom: 2em;
     }
@@ -60,24 +62,30 @@
         font-size: 15px;
         font-weight: $light;
         opacity: $fontOpacity;
-        margin-bottom: 2em;
+        margin-bottom: 2.4em;
         width: 70%;
     }
 
     .modal__button {
         @include display-flex(space-between, center, row);
-        min-width: 300px;
-        width: 40%;
+        width: 320px;
 
         .modal__button--primary {
-            color: white;
-            border: 1.5px solid white;;
-            background-color: rgba(255, 255, 255, 0.05);
+            @include button-primary(white, $secondaryColor);
+            transition: all .35s ease-in-out;
         }
 
+        .modal__button--primary:hover {
+            opacity: .7;
+        }
+        
         .modal__button--secondary {
-            color: white;
-            background-color: $accentColor;
+            @include button-secondary(white, rgba(255, 255, 255, 0.05));
+            transition: all .35s ease-in-out;
+        }
+
+        .modal__button--secondary:hover {
+            background-color: rgba(255, 255, 255, 0.15);
         }
 
     }

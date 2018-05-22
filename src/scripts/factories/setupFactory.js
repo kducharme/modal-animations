@@ -1,11 +1,11 @@
 const $ = require('jquery');
 
-const modalFactory = (title, subtitle, details, inputs, button1, button2) => {
+const setupFactory = (title, subtitle, details, inputs, button1, button2) => {
     const $body = $('body');
 
     // Creates modal structure
-    const $modal = $('<span>');
-    $modal.addClass('modal');
+    const $modal = $('<div>')
+        .addClass('modal');
 
     // Modal title
     if (subtitle) {
@@ -55,7 +55,7 @@ const modalFactory = (title, subtitle, details, inputs, button1, button2) => {
     if (button1 && button2) {
         const $structure = $('<span>')
             .addClass('modal__button');
-        $structure.append(button1, button2);
+        $structure.append(button2, button1);
         $modal.append($structure)
     }
     if (!button2) {
@@ -72,4 +72,4 @@ const closeModal = () => {
     $('.modal__close').remove();
 }
 
-module.exports = modalFactory;
+module.exports = setupFactory;

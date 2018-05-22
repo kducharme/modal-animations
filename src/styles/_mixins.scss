@@ -9,7 +9,14 @@
     flex-direction: $direction;
 }
 
-@mixin primary-button ($color, $background) {
+@mixin button-primary ($textColor, $background) {
+    color: $textColor;
+    background-color: $background;
+    border: none;
+}
+
+@mixin button-secondary ($color, $background) {
     color: $color;
     background-color: $background;
+    border: 1.5px solid $color;
 }

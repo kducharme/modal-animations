@@ -1,0 +1,33 @@
+@import 'variables';
+
+.wave {
+    opacity: .25;
+    position: absolute;
+    top: 0;
+    right: -150px;
+    width: 360px;
+    height: 360px;
+    margin-left: -250px;
+    margin-top: -250px;
+    transform-origin: 50% 48%;
+    border-radius: 44%;
+    animation: drift 12000ms infinite linear;
+}
+.wave1 {
+    background: $secondaryColor;
+}
+
+.wave2 {
+    background: $secondaryColor;
+    opacity: .5;
+    top: 0;
+    right: -140px;
+    width: 350px;
+    height: 350px;
+    animation: drift 12000ms infinite linear;
+}
+
+@keyframes drift {
+    from { transform: rotate(0deg); }
+    from { transform: rotate(360deg); }
+  }
