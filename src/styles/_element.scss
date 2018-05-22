@@ -17,11 +17,14 @@ button {
     min-width: 150px;
 }
 
-button:active, button:focus, button:hover, input:active, input:focus {
-    cursor: pointer;
+button:active, button:focus, input:active, input:focus {
     -webkit-transition: none;
     -moz-transition: none;
     -ms-transition: none;
     -o-transition: none;
     outline: none;
+}
+
+button:active, button:focus, button:hover {
+    cursor: pointer;
 }

@@ -9,7 +9,7 @@ const setupFactory = (wave, title, subtitle, details, inputs, button1, button2) 
 
     const $bg = $('<div>')
         .addClass('modal__bg')
-        $modal.append($bg);
+    $modal.append($bg);
 
     const $content = $('<div>')
         .attr('id', 'content')
@@ -51,14 +51,14 @@ const setupFactory = (wave, title, subtitle, details, inputs, button1, button2) 
             const $label = $('<label>')
                 .text(input)
                 .addClass('modal__form--label');
-            $stucture.append($label);
+            $structure.append($label);
 
             // Creates input
             const id = input.split(' ')[0];
             const $input = $('<input>')
-            .attr('id', `id__${id}`)
-            .attr('placeholder', input)
-            .addClass('modal__form--input');
+                .attr('id', `id__${id}`)
+                .attr('placeholder', input)
+                .addClass('modal__form--input');
             $structure.append($input);
 
             // Appends full input to form
@@ -75,7 +75,10 @@ const setupFactory = (wave, title, subtitle, details, inputs, button1, button2) 
         $content.append($structure)
     }
     if (!button2) {
-        $content.append(button1);
+        const $structure = $('<span>')
+            .addClass('modal__button');
+        $structure.append(button1);
+        $content.append($structure)
     }
 
     $modal.append($content)
