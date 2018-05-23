@@ -94,7 +94,6 @@ const setupManager = Object.create(null, {
                         'margin-top': '50px'
                     })
 
-
                     // collapses bg to hide on right of page
                     $('#wave1').animate({
                         width: '1000px',
@@ -106,7 +105,7 @@ const setupManager = Object.create(null, {
 
                     setTimeout(function () {
                         $('.modal__bg').animate({
-                            width: '7vw'
+                            width: '5vw'
                         }, 1400)
                     }, 265);
 
@@ -171,7 +170,7 @@ const setupManager = Object.create(null, {
 
                     setTimeout(function () {
                         $('.modal__bg').animate({
-                            width: '7vw'
+                            width: '5vw'
                         }, 1400)
                     }, 265);
 
